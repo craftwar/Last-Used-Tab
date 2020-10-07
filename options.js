@@ -3,14 +3,14 @@ const DEFAULT = "Ctrl+Shift+1";
 function validate(candidate) {
   let patterns = [
     /^\s*(Alt|Ctrl|Command|MacCtrl)\s*\+\s*(Shift\s*\+\s*)?([A-Z0-9]|Comma|Period|Home|End|PageUp|PageDown|Space|Insert|Delete|Up|Down|Left|Right)\s*$/,
-    /^\s*((Alt|Ctrl|Command|MacCtrl)\s*\+\s*)?(Shift\s*\+\s*)?(F[1-9]|F1[0-2])\s*$/, 
+    /^\s*((Alt|Ctrl|Command|MacCtrl)\s*\+\s*)?(Shift\s*\+\s*)?(F[1-9]|F1[0-2])\s*$/,
     /^(MediaNextTrack|MediaPlayPause|MediaPrevTrack|MediaStop)$/
   ];
   for (let pattern of patterns) {
     if (candidate.match(pattern)) {
       return true;
     }
-  }  
+  }
   return false;
 }
 
@@ -49,7 +49,7 @@ async function restoreOptions() {
   });
 }
 
-function setKey (key) {
+function setKey(key) {
   document.querySelector('#shortcut').value = key;
 }
 
