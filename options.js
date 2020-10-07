@@ -33,7 +33,7 @@ async function saveOptions(e) {
 
   if (!isValid) return;
 
-  let rv = await browser.storage.local.set({
+  let rv = await browser.storage.sync.set({
     "shortcut": shortcut
   });
 
@@ -41,7 +41,7 @@ async function saveOptions(e) {
 }
 
 async function restoreOptions() {
-  var gettingItem = browser.storage.local.get("shortcut");
+  var gettingItem = browser.storage.sync.get("shortcut");
   return gettingItem.then((res) => {
     let shortcut = res.shortcut;
     document.getElementById('shortcut').value = shortcut || DEFAULT;
@@ -55,7 +55,7 @@ function setKey(key) {
 
 async function reset() {
   document.getElementById('shortcut').value = DEFAULT;
-  await browser.storage.local.clear();
+  await browser.storage.sync.clear();
   await restoreOptions();
   saveOptions();
 }

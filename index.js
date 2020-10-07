@@ -91,7 +91,7 @@ browser.commands.onCommand.addListener((command) => {
 });
 
 function updateFromOptions() {
-  var gettingItem = browser.storage.local.get("shortcut");
+  var gettingItem = browser.storage.sync.get("shortcut");
   return gettingItem.then((res) => {
     let shortcut = res.shortcut || DEFAULT;
     debug_log("Updating command: " + shortcut);
