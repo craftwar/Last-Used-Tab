@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 "use strict";
-const DEFAULT = browser.runtime.getManifest().commands["last-used-tab"]["suggested_key"]["default"];
+// const DEFAULT = browser.runtime.getManifest().commands["last-used-tab"]["suggested_key"]["default"];
 const debugging = false;
 
 // recents windowId -> recentArray (new ... old)
@@ -25,7 +25,7 @@ function shortcutHit() {
   debug_log("shortcutHit() begin");
   // load the current window
   var getting = browser.windows.getCurrent();
-  getting.then((windowInfo) => {
+  getting.then(windowInfo => {
     if (windowInfo.type != "normal") {
       debug_log(`Current window is of type '${windowInfo.type}', ignoring`);
       return;
