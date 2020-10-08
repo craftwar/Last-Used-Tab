@@ -80,7 +80,7 @@ function onError(error) {
 }
 
 // Hook the keyboard shortcut
-browser.commands.onCommand.addListener((command) => {
+browser.commands.onCommand.addListener(command => {
   switch (command) {
     case "last-used-tab":
       shortcutHit();
@@ -89,22 +89,6 @@ browser.commands.onCommand.addListener((command) => {
       debug_log("onCommand event received unknown message: ", command);
   };
 });
-
-function updateFromOptions() {
-  var gettingItem = browser.storage.sync.get("shortcut");
-  return gettingItem.then((res) => {
-    let shortcut = res.shortcut || DEFAULT;
-    debug_log("Updating command: " + shortcut);
-
-    browser.commands.update({
-      name: "last-used-tab",
-      shortcut: shortcut
-    });
-  });
-}
-
-// xxx, don't use storage change to update option
-browser.storage.onChanged.addListener(updateFromOptions);
 
 // hook to track tab changes
 browser.tabs.onActivated.addListener(tabActivated);
@@ -115,5 +99,3 @@ browser.browserAction.onClicked.addListener(shortcutHit);
 
 // hook the external message API to allow other addons to trigger the action
 browser.runtime.onMessageExternal.addListener((message, sender, sendResponse) => { shortcutHit(); return false });
-
-updateFromOptions();
