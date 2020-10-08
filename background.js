@@ -8,7 +8,6 @@ const debugging = false;
 
 // recents windowId -> recentArray (new ... old)
 let recents = new Map();
-let recentsLimit = 20;
 
 let debug_log;
 if (debugging)
@@ -48,8 +47,7 @@ function tabActivated(tabInfo) {
     // not new tab
     if (index != -1)
       recentArray.splice(index, 1);
-    else if (recentArray.length >= recentsLimit)
-      recentArray.pop();
+
     recentArray.unshift(tabInfo.tabId);
   } else {
     recents.set(tabInfo.windowId, [tabInfo.tabId, tabInfo.previousTabId]);
