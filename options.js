@@ -1,4 +1,4 @@
-const DEFAULT = "Ctrl+Shift+1";
+const DEFAULT = browser.runtime.getManifest().commands["last-used-tab"]["suggested_key"]["default"];
 
 function validate(candidate) {
   let patterns = [

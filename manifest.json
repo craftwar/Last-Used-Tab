@@ -14,11 +14,11 @@
   },
   "background": {
     "scripts": [
-      "index.js"
+      "background.js"
     ]
   },
   "commands": {
-    "most-recent-tab-command": {
+    "last-used-tab": {
       "suggested_key": {
         "default": "Ctrl+Shift+1"
       },

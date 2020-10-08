@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 "use strict";
-const DEFAULT = "Ctrl+Shift+1";
+const DEFAULT = browser.runtime.getManifest().commands["last-used-tab"]["suggested_key"]["default"];
 const debugging = false;
 
 // recents windowId -> recentArray (new ... old)
@@ -82,7 +82,7 @@ function onError(error) {
 // Hook the keyboard shortcut
 browser.commands.onCommand.addListener((command) => {
   switch (command) {
-    case "most-recent-tab-command":
+    case "last-used-tab":
       shortcutHit();
       break;
     default:
@@ -97,7 +97,7 @@ function updateFromOptions() {
     debug_log("Updating command: " + shortcut);
 
     browser.commands.update({
-      name: "most-recent-tab-command",
+      name: "last-used-tab",
       shortcut: shortcut
     });
   });
