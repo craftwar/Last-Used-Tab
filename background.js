@@ -15,6 +15,11 @@ if (debugging)
 else
   debug_log = () => { };
 
+// General error handler, logs the error for debugging.
+function onError(error) {
+  debug_log(`Error: ${error}`);
+}
+
 // callback for "go to last tab" shortcut
 function shortcutHit() {
   debug_log("shortcutHit() begin");
@@ -70,11 +75,6 @@ function tabRemoved(tabId, removeInfo) {
     }
   }
   debug_log("tabRemoved(tabId, removeInfo) end");
-}
-
-// General error handler, logs the error for debugging.
-function onError(error) {
-  debug_log(`Error: ${error}`);
 }
 
 // Hook the keyboard shortcut
