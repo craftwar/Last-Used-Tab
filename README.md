@@ -1,12 +1,10 @@
-Most Recent Tab
+Last Used Tab
 ===============
 
-Firefox extension that adds a keyboard shortcut to switch back to your most recently selected tab. Useful to alternate between two tabs and to easy go back to your last tab if you switch to another briefly.
+Firefox extension that adds a keyboard shortcut and toolbar button to switch back to your last used tab.
 
-This is rewrite built on Firefox's new [WebExtensions API](https://hacks.mozilla.org/2017/06/cross-browser-extensions-available-now-in-firefox/), replacing the old Addon SDK version.
+This is rewrite of ["Most Recent Tab" by Paul V](https://github.com/thePaulV/Most-Recent-Tab). Clean up code and support go back to last used tab after tabs are closed.
 
-It's distributed via the [Firefox addons.mozilla.org site](https://addons.mozilla.org/en-US/firefox/addon/most-recent-tab/).
-
-To trigger the action programmatically from another addon, you can do so using the [browser.runtime.sendMessage](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/runtime/sendMessage) API ([sample code](https://gist.github.com/thePaulV/df47bb3a086f027f2301c662baf78e6a));
+[Installation for Firefox](https://addons.mozilla.org/en-US/firefox/addon/last-used-tab/)
 
 The code is licensed under the Mozilla Public License 2.0.
