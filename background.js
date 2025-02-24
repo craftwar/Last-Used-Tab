@@ -3,7 +3,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 "use strict";
-// const DEFAULT = browser.runtime.getManifest().commands["last-used-tab"]["suggested_key"]["default"];
 const debugging = false;
 
 // recents windowId -> recentArray (new ... old)
@@ -76,17 +75,6 @@ function tabRemoved(tabId, removeInfo) {
   }
   debug_log("tabRemoved(tabId, removeInfo) end");
 }
-
-// Hook the keyboard shortcut
-browser.commands.onCommand.addListener(command => {
-  switch (command) {
-    case "last-used-tab":
-      shortcutHit();
-      break;
-    default:
-      debug_log("onCommand event received unknown message: ", command);
-  };
-});
 
 // hook to track tab changes
 browser.tabs.onActivated.addListener(tabActivated);

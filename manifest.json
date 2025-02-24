@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Last Used Tab",
-  "version": "1.0",
+  "version": "1.1",
   "author": "craftwar",
   "description": "Adds a keyboard shortcut and toolbar button to switch back to your last used tab. Useful to go back to your original tab after viewing and closing many tabs. The default shortcut is Control-shift-1 on Windows and Command-shift-1 on Mac.",
   "homepage_url": "https://github.com/craftwar/Last-Used-Tab",
@@ -19,7 +19,7 @@
     ]
   },
   "commands": {
-    "last-used-tab": {
+    "_execute_browser_action": {
       "suggested_key": {
         "default": "Ctrl+Shift+1"
       },
